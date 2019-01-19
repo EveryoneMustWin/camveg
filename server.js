@@ -24,12 +24,25 @@ app.use(session({ secret: 'this-is-a-secret-token', cookie: { maxAge: 60000 }}))
 
 //------------------------------------------------------------------------------------------------------------------------------
 
-app.get('/', function (req, res) {
+app.get('/', function(req, res) {
 
   console.log("GET /")
   res.render('index', {});
 });
 
-app.listen(3000, function () {
+app.post('/newuser', function(req, res) {
+
+  console.log("POST /newuser")
+
+  console.log(req.body.name);
+  console.log(req.body.email);
+
+	res.setHeader('Content-Type', 'application/json');
+	res.send(JSON.stringify({ a: 1 }));
+
+//  res.render('index', {});
+});
+
+app.listen(3000, function() {
   console.log('Camveg app listening on port 3000!')
 });
