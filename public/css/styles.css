@@ -1,0 +1,19 @@
+
+body {
+  margin: 0 auto;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#container {
+  width: 100vw;
+  height: 100vh;
+}
+
+#header {
+  position: absolute;
+  left: 100px;
+  top: 100px;
+  width: 200px;
+  height: 80px;
+  border: 1px solid black;
+}
