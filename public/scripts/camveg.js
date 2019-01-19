@@ -55,13 +55,18 @@ $().ready(function() {
 
                 $("#map-container").animate({
                     width: "600px"
-                });                
+                });
 
                 $("#about-header").empty().append(o.name);
                 $("#about-summary").empty().append(o.description);
                 $("#about-photos").empty().append(o.photos);
                 $("#about-reviews").empty().append(o.reviews);
             });
+
+            // Add popup
+            var popupText = `${o.name}`
+            popupText += `<br/><a href="${o.website}">${o.website}</a>`
+            m.bindPopup(popupText).openPopup();
         });
     };
 

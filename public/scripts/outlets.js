@@ -1,6 +1,7 @@
 
 var outlets = [{
     name: "Arjuna",
+    website: "http://www.arjunawholefoods.co.uk",
     lat: 52.2004,
     lng: 0.1338,
     photos: "no photos",
@@ -9,6 +10,7 @@ var outlets = [{
 },
 {
     name: "Espresso Library",
+    website: "http://www.espressolibrary.com",
     lat: 52.2036,
     lng: 0.1322,
     photos: "no photos",
