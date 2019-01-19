@@ -1,9 +1,10 @@
 
+
 $().ready(function() {
     console.log("ready");
 
     var camveg = {
-        consoleShown: false
+        consoleShown: true
     };
 
     camveg.toggleConsole = function() {
@@ -29,9 +30,21 @@ $().ready(function() {
 
             camveg.consoleShown = true;
         }
-    }
+    };
 
-    var mymap = L.map('map-container').setView([52.1860, 0.1284], 14);
+    var mymap = L.map('map-container').setView([52.2000, 0.1284], 14);
+
+
+    camveg.load = function() {
+
+        $.each(outlets, function(i, o) {
+
+            console.log(o);
+
+            L.marker([o.lat, o.lng]).addTo(mymap);
+        });
+    };
+
 
     var lnrs = [];
 
@@ -45,8 +58,8 @@ $().ready(function() {
 
     $("#new-user-submit").click(function() {
 
-        var newUserName = $("#new-user-name").val();
-        var newUserEmail = $("#new-user-email").val();
+        var newUserName = $("#new-user-name input").val();
+        var newUserEmail = $("#new-user-email input").val();
 
         console.log("the new user has details:");
         console.log(newUserName);
@@ -54,13 +67,17 @@ $().ready(function() {
 
         $.ajax({
             type: "POST",
-            url: "http://localhost/api/",
-            data: {"on": false} 
+            url: "http://localhost:3000/newuser",
+            data: {
+                name: newUserEmail,
+                email: newUserEmail
+            }
         }).done(function(data, textStatus, jqXHR) {
             console.log(data);
         });
     });
 
+    camveg.load();
 
     $(document).keydown(function(e) {
 
@@ -73,7 +90,5 @@ $().ready(function() {
         }
     });
 
-
-//    L.marker([52.1934, 0.1288]).addTo(mymap);
 
 });
