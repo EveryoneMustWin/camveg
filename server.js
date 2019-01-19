@@ -11,9 +11,10 @@ const salt = "95T320Dne2kNfoDs";
 // var MongoClient = mongo.MongoClient;
 //var MongoClient = require('mongodb').MongoClient;
 
-const couch = require('couchbase');
-var CouchClient = couch.CouchClient;
+const couchbase = require('couchbase');
 
+var cluster = new couchbase.Cluster('couchbase://localhost');
+var bucket = cluster.openBucket('camveg');
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,6 +27,7 @@ app.use(session({ secret: 'this-is-a-secret-token', cookie: { maxAge: 60000 }}))
 app.get('/', function (req, res) {
 
   console.log("GET /")
+  res.render('index', {});
 });
 
 app.listen(3000, function () {
