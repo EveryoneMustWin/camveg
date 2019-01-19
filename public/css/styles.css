@@ -36,3 +36,42 @@ html, body {
     overflow: scroll;
     flex: 1 1 auto;
 }
+
+#user-test {
+  float: left;
+  margin-left: 20px;
+  margin-top: 4px;
+  width: 180px;
+  height: 116px;
+  background-color: #74a;
+}
+
+#new-user-label {
+  width: 120px;
+  height: 24px;
+  margin-left: 4px;
+  margin-top: 4px;
+  text-align: center;
+}
+
+#new-user-name {
+  width: 120px;
+  height: 24px;
+  margin-left: 4px;
+  margin-top: 4px;
+}
+
+#new-user-email {
+  width: 120px;
+  height: 24px;
+  margin-left: 4px;
+  margin-top: 4px;
+}
+
+#new-user-submit {
+  width: 80px;
+  height: 24px;
+  background-color: #9cb;
+  margin-left: 40px;
+  margin-top: 4px;
+}
