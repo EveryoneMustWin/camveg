@@ -4,9 +4,14 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-#container {
-  width: 100vw;
-  height: 100vh;
+#container { 
+    height: 100%; 
+    width: 100%;
+}
+
+#map-container {
+    width: 100vw;
+    height: 100vw;
 }
 
 #header {
@@ -15,5 +20,6 @@ body {
   top: 100px;
   width: 200px;
   height: 80px;
+  background-color: white;
   border: 1px solid black;
 }
