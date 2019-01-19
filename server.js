@@ -13,7 +13,7 @@ const salt = "95T320Dne2kNfoDs";
 
 const couchbase = require('couchbase');
 
-var cluster = new couchbase.Cluster('couchbase://localhost');
+var cluster = new couchbase.Cluster('http://35.197.104.54:8091/');
 var bucket = cluster.openBucket('camveg');
 
 app.use(express.static('public'));
@@ -26,10 +26,10 @@ app.use(session({ secret: 'this-is-a-secret-token', cookie: { maxAge: 60000 }}))
 
 app.get('/', function (req, res) {
 
-  console.log("GET /")
+  console.log("GET /");
   res.render('index', {});
 });
 
 app.listen(3000, function () {
-  console.log('Camveg app listening on port 3000!')
+  console.log('Camveg app listening on port 3000!');
 });
