@@ -39,12 +39,15 @@ app.post('/newuser', function(req, res) {
 
   console.log("POST /newuser");
 
-  console.log(req.body.name);
-  console.log(req.body.email);
+  // console.log(req.body.name);
+  // console.log(req.body.email);
 
  
  // Convert our form input into JSON ready to store in Couchbase
   var jsonVersion = JSON.stringify(req.body);
+
+  console.log("document to save is:");
+  console.log(jsonVersion);
 
  // Save it into Couchbase with keyname user
   bucket.upsert(req.body.name, jsonVersion, function (err, response){

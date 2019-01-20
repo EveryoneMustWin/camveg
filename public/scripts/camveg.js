@@ -34,6 +34,26 @@ $().ready(function() {
 
     var mymap = L.map('map-container').setView([52.2000, 0.1284], 14);
 
+    camveg.createGallery = function(photos) {
+
+        if (photos == undefined || photos.length == 0) {
+            return "<div></div>";
+        }
+
+        console.log("createGallery");
+
+        galleryStr = "";
+
+        $.each(photos, function(i, p) {
+
+            console.log(p);
+
+            galleryStr += ("<img src='" + p + "'></img>");
+        });
+
+        galleryStr += "";
+    }
+
 
     camveg.load = function() {
 
@@ -59,14 +79,9 @@ $().ready(function() {
 
                     $("#about-header").empty().append(o.name);
                     $("#about-summary").empty().append(o.description);
-                    $("#about-photos").empty().append(o.photos);
+                    $("#about-photos").empty().append(camveg.createGallery(o.photos));
                     $("#about-reviews").empty().append(o.reviews);
                 });
-
-                // Add popup
-                var popupText = `${o.name}`
-                popupText += `<br/><a href="${o.website}">${o.website}</a>`
-                m.bindPopup(popupText).openPopup();
             });
         });
     };
@@ -105,9 +120,6 @@ $().ready(function() {
     camveg.load();
 
     $(document).keydown(function(e) {
-
-        console.log("keydown");
-        console.log(e.keyCode);
 
         if ((e.keyCode == 192) || (e.keyCode == 223)) {
 

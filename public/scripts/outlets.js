@@ -1,5 +1,6 @@
 
 var outlets = [{
+
     "name": "Arjuna",
     "facilities": ["shop/food"],
     "website": "http://www.arjunawholefoods.co.uk",
@@ -22,11 +23,10 @@ var outlets = [{
             }
         }
     ],
-    "photos": "no photos",
+    "photos": ["arjuna-shop-front.jpg", "arjuna-shop-interior.jpg"],
     "description": "here is some tempeh and miso",
     "reviews": "5 out of 5"
-},
-{
+}, {
     "name": "Espresso Library",
     "facilities": ["cafe", "wifi"],
     "website": "http://www.espressolibrary.com",
@@ -45,11 +45,10 @@ var outlets = [{
             }
         }
     ],
-    "photos": "no photos",
+    "photos": ["espresso-library-exterior.jpg", "espresso-library-interior.jpg"],
     "description": "here is some coffee",
     "reviews": "5 out of 5"
-},
-{
+}, {
     "name": "Wandering Yak",
     "facilities": ["eat/streetfood"],
     "website": "http://www.wanderingyak.co.uk",
@@ -81,11 +80,10 @@ var outlets = [{
             }
         }
     ],
-    "photos": "no photos",
+    "photos": [],
     "description": "here is some coffee",
     "reviews": "5 out of 5"
-},
-{
+}, {
     "name": "Cube of Truth",
     "facilities": ["activists", "scarymovies"],
     "website": "https://www.anonymousforthevoiceless.org",
@@ -98,8 +96,7 @@ var outlets = [{
             }
         },
     ],
-    "photos": "no photos",
+    "photos": [],
     "description": "Guys and gals in Guy Fawkes masks",
     "reviews": "5 out of 5"
-}
-]
+}]
