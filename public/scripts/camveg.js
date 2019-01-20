@@ -58,6 +58,26 @@ $().ready(function() {
         return galleryStr;
     }
 
+    camveg.createOpeningHours = function (hoursOpen, hoursClosed) {
+        console.log("createOpeningHours");
+
+        // Format opening hours as table
+        // TODO: Handle closed hours
+        openingHours = "<b>Open:</b><br><div class='opening-hours-summary'>";
+        $.each(hoursOpen, function (day, hours) {
+            line = "<div class='opening-hours-day'>";
+            line += "<div class='weekday'>" + day + "</div>";
+            line += "<div class='hour-minute'>" + hours[0] + "</div>";
+            line += "<div class='hour-minute'>" + " - "  + "</div>";
+            line += "<div class='hour-minute'>" + hours[1] + "</div>";
+            line += "</div>";
+            openingHours += line;
+        });
+        openingHours += "</div>";
+
+        return openingHours;
+    }
+
 
     camveg.load = function() {
 
@@ -83,6 +103,8 @@ $().ready(function() {
                     $("#about-header").empty().append(o.name);
                     $("#about-summary").empty().append(o.description);
                     $("#about-photos").empty().append(camveg.createGallery(o.photos));
+                    $("#about-facilities").empty().append(o.facilities.join(", "));
+                    $("#about-hours").empty().append(camveg.createOpeningHours(v.open, v.closed));
                     $("#about-reviews").empty().append(o.reviews);
                 });
             });
