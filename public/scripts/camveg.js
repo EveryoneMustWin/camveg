@@ -58,21 +58,66 @@ $().ready(function() {
         return galleryStr;
     }
 
+    // Formats a date object as a string 'YYYY-MM-DD'
+    camveg.formatDate = function (date)
+    {
+        return date.getFullYear().toString() + "-" +
+               (date.getMonth() + 1).toString().padStart(2, '0') + "-" +
+               (date.getDate()).toString().padStart(2, '0');
+    }
+
+    // Formats hours as hh:mm - hh:mm
+    camveg.formatHours = function (hours) {
+        return "<div class='hour-minute'>" + hours[0] + "</div>" +
+               "<div class='hour-minute'>" + " - " + "</div>" +
+               "<div class='hour-minute'>" + hours[1] + "</div>";
+    }
+
     camveg.createOpeningHours = function (hoursOpen, hoursClosed) {
         console.log("createOpeningHours");
 
-        // Format opening hours as table
-        // TODO: Handle closed hours
+        hoursClosed = (hoursClosed == null) ? {} : hoursClosed;
+
+        var dateToday = new Date();
+        console.log(dateToday);
+        
+        var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
         var openingHours = "<b>Open:</b><br><div class='opening-hours-summary'>";
-        $.each(hoursOpen, function (day, hours) {
+        // Format weekday opening hours as table
+        const NumDaysInWeek = 7;
+        datesAdded = []
+        // Show dates up to ~1 month ahead, and maximum of 7 dates in total
+        for (var i = 0; i < 30 && datesAdded.length < NumDaysInWeek; i++) {
+            date = new Date();
+            date.setDate(dateToday.getDate() + i);
+            
+            var dayOfWeek = dayNames[date.getDay()];
+            var yearMonthDate = camveg.formatDate(date);
+
             line = "<div class='opening-hours-day'>";
-            line += "<div class='weekday'>" + day + "</div>";
-            line += "<div class='hour-minute'>" + hours[0] + "</div>";
-            line += "<div class='hour-minute'>" + " - "  + "</div>";
-            line += "<div class='hour-minute'>" + hours[1] + "</div>";
+            line += "<div class='weekday'>" + dayOfWeek + "</div>";
+            line += "<div class='weekday'>" + date.getDate() + "</div>";
+            line += "<div class='weekday'>" + monthNames[date.getMonth()] + "</div>";
+            // Check for day of week - unless date found in closing hours
+            if (dayOfWeek in hoursOpen && !(yearMonthDate in hoursClosed)) {
+                line += camveg.formatHours(hoursOpen[dayOfWeek]);
+                datesAdded.push(yearMonthDate);
+            }
+            // Otherwise, check specific date
+            else if (yearMonthDate in hoursOpen) {
+                line += camveg.formatHours(hoursOpen[yearMonthDate]);
+                datesAdded.push(yearMonthDate);
+            }
+            // If not, it's closed
+            else {
+                line += "<div class='hour-minute'>" + "Closed" + "</div>";
+            }
             line += "</div>";
             openingHours += line;
-        });
+        }
+
         openingHours += "</div>";
 
         return openingHours;
