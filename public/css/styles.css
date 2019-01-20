@@ -23,7 +23,7 @@ html, body {
 }
 
 #map-container {
-    width: 600px;
+    width: 1360px;
     height: 100%;
     flex: 1 0 auto;
     flex-flow: row;
@@ -38,44 +38,101 @@ html, body {
     flex: 1 1 auto;
 }
 
-#user-test {
+
+#place-new {
   float: left;
-  margin-left: 20px;
+  margin-left: 10px;
   margin-top: 4px;
-  width: 180px;
-  height: 116px;
+  width: 200px;
+  height: 176px;
   background-color: #74a;
 }
 
-#new-user-label {
-  width: 120px;
+#place-new-label {
+  width: 130px;
   height: 24px;
   margin-left: 4px;
   margin-top: 4px;
   text-align: center;
 }
 
-#new-user-name {
+#place-new-id {
   width: 120px;
   height: 24px;
   margin-left: 4px;
   margin-top: 4px;
 }
 
-#new-user-email {
+#place-new-name {
   width: 120px;
   height: 24px;
   margin-left: 4px;
   margin-top: 4px;
 }
 
-#new-user-submit {
+#place-new-lat {
+  width: 120px;
+  height: 24px;
+  margin-left: 4px;
+  margin-top: 4px;
+}
+
+#place-new-lng {
+  width: 120px;
+  height: 24px;
+  margin-left: 4px;
+  margin-top: 4px;
+}
+
+#place-new-submit {
   width: 80px;
   height: 24px;
   background-color: #9cb;
   margin-left: 40px;
   margin-top: 4px;
 }
+
+
+#place-check {
+  float: left;
+  margin-left: 10px;
+  margin-top: 4px;
+  width: 200px;
+  height: 186px;
+  background-color: #74a;
+}
+
+#place-check-label {
+  width: 130px;
+  height: 24px;
+  margin-left: 4px;
+  margin-top: 4px;
+  text-align: center;
+}
+
+#place-check-id {
+  width: 120px;
+  height: 24px;
+  margin-left: 4px;
+  margin-top: 4px;
+}
+
+#place-check-display {
+  width: 172px;
+  height: 88px;
+  background-color: #a7c;
+  margin-left: 4px;
+  margin-top: 4px;
+}
+
+#place-check-submit {
+  width: 80px;
+  height: 24px;
+  background-color: #9cb;
+  margin-left: 40px;
+  margin-top: 4px;
+}
+
 
 #about-header {
 

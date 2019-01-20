@@ -38,19 +38,14 @@ app.listen(3000, function () {
 app.post('/newuser', function(req, res) {
 
   console.log("POST /newuser");
-
-  // console.log(req.body.name);
-  // console.log(req.body.email);
-
  
- // Convert our form input into JSON ready to store in Couchbase
+  // Convert our form input into JSON ready to store in Couchbase
   var jsonVersion = JSON.stringify(req.body);
-
   console.log("document to save is:");
   console.log(jsonVersion);
 
- // Save it into Couchbase with keyname user
-  bucket.upsert(req.body.name, jsonVersion, function (err, response){
+  // Save it into Couchbase with email as key
+  bucket.upsert(req.body.email, jsonVersion, function (err, response){
     if (err) {
       console.log('Failed to save to Couchbase', err);
       return;
@@ -58,5 +53,70 @@ app.post('/newuser', function(req, res) {
       res.send('Saved to Couchbase!');
     }
   });
-  
+});
+
+app.post('/user', function(req, res) {
+
+  console.log("POST /user");
+
+  console.log("looking in the bucket for:");
+ 
+  console.log(req.body.email);
+
+  bucket.get(req.body.email, function(err, response) {
+
+    if (err) {
+      console.log('Failed to get from Couchbase', err);
+      return;
+    } else {
+      console.log(response);
+      res.send(response);
+    }
+  });
+});
+
+app.post('/newplace', function(req, res) {
+
+  console.log("POST /newplace");
+ 
+  // Convert our form input into JSON ready to store in Couchbase
+  var jsonVersion = JSON.stringify(req.body);
+  console.log("document to save is:");
+  console.log(jsonVersion);
+
+  // Save it into Couchbase with email as key
+  bucket.upsert(req.body.id, jsonVersion, function (err, response){
+    if (err) {
+      console.log('Failed to save to Couchbase', err);
+      return;
+    } else {
+      res.send('Saved to Couchbase!');
+    }
+  });
+});
+
+
+app.post('/place', function(req, res) {
+
+  console.log("POST /place");
+
+  if (req.body.id == undefined) {
+	console.log("undefined id:");
+  	return;
+  }
+
+  console.log("looking in the bucket for:");
+  console.log(req.body.id);
+
+  bucket.get(req.body.id, function(err, response) {
+
+    if (err) {
+      console.log('Failed to get from Couchbase', err);
+      res.send("{ 'error': 'error, no place with that id' }");
+      return;
+    } else {
+      console.log(response);
+      res.send(response);
+    }
+  });
 });

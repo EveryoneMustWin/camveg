@@ -24,7 +24,7 @@ var outlets = [{
         }
     ],
     "photos": ["arjuna-shop-front.jpg", "arjuna-shop-interior.jpg"],
-    "description": "here is some tempeh and miso",
+    "description": "Wholefood shop with many vegan options",
     "reviews": "5 out of 5"
 }, {
     "name": "Espresso Library",
@@ -46,7 +46,29 @@ var outlets = [{
         }
     ],
     "photos": ["espresso-library-exterior.jpg", "espresso-library-interior.jpg"],
-    "description": "here is some coffee",
+    "description": "Cafe with vegan tiffin and cake",
+    "reviews": "5 out of 5"
+}, {
+    "name": "Daily Bread Co-Operative",
+    "facilities": ["cafe", "wholefood"],
+    "website": "http://dailybreadcambridge.org",
+    "venues": [
+        {
+            "name": "",
+            "location": { "lat": 52.2327, "lng": 0.1330 },
+            "open": {
+                // "Monday":    ["7:30", "18:00"],
+                // "Tuesday":   ["7:30", "18:00"],
+                // "Wednesday": ["7:30", "18:00"],
+                // "Thursday":  ["7:30", "18:00"],
+                // "Friday":    ["7:30", "18:00"],
+                // "Saturday":  ["7:30", "18:00"],
+                // "Sunday":    ["8:30", "18:00"]
+            }
+        }
+    ],
+    "photos": [],
+    "description": "Wholefood store with refill options",
     "reviews": "5 out of 5"
 }, {
     "name": "Wandering Yak",
@@ -81,7 +103,7 @@ var outlets = [{
         }
     ],
     "photos": [],
-    "description": "here is some coffee",
+    "description": "Mobile food van",
     "reviews": "5 out of 5"
 }, {
     "name": "Cube of Truth",
@@ -97,6 +119,6 @@ var outlets = [{
         },
     ],
     "photos": [],
-    "description": "Guys and gals in Guy Fawkes masks",
+    "description": "Animal rights demo, using videos of suffering",
     "reviews": "5 out of 5"
 }]

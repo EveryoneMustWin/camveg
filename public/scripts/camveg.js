@@ -16,7 +16,7 @@ $().ready(function() {
             console.log("hiding console");
 
             $("#map-container").animate({
-                width: "1300px"
+                width: "1360px"
             });
 
             camveg.consoleShown = false;
@@ -25,7 +25,7 @@ $().ready(function() {
             console.log("showing console");
 
             $("#map-container").animate({
-                width: "600px"
+                width: "1128px"
             });
 
             camveg.consoleShown = true;
@@ -62,12 +62,11 @@ $().ready(function() {
     camveg.load = function() {
 
         $.each(outlets, function (i, o) {
-            console.log(o);
             $.each(o.venues, function (j, v) {
 
                 var m = L.marker([v.location.lat, v.location.lng]).addTo(mymap);
 
-                console.log(m);
+                //console.log(m);
 
                 $(m).click(function () {
 
@@ -78,7 +77,7 @@ $().ready(function() {
                     $("#debug").hide();
 
                     $("#map-container").animate({
-                        width: "600px"
+                        width: "1128px"
                     });
 
                     $("#about-header").empty().append(o.name);
@@ -100,21 +99,84 @@ $().ready(function() {
         id: 'mapbox.streets'
     }).addTo(mymap);
 
-    $("#new-user-submit").click(function() {
+    // $("#new-user-submit").click(function() {
 
-        var newUserName = $("#new-user-name input").val();
-        var newUserEmail = $("#new-user-email input").val();
+    //     var newUserName = $("#new-user-name input").val();
+    //     var newUserEmail = $("#new-user-email input").val();
+
+    //     console.log("the new user has details:");
+    //     console.log(newUserName);
+    //     console.log(newUserEmail);
+
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "http://localhost:3000/newuser",
+    //         data: {
+    //             name: newUserName,
+    //             email: newUserEmail
+    //         }
+    //     }).done(function(data, textStatus, jqXHR) {
+    //         console.log(data);
+    //     });
+    // });
+
+    // $("#user-check-submit").click(function() {
+
+    //     var checkUserEmail = $("#user-check-email input").val();
+
+    //     console.log("the user has details:");
+    //     console.log(checkUserEmail);
+
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "http://localhost:3000/user",
+    //         data: {
+    //             email: checkUserEmail
+    //         }
+    //     }).done(function(data, textStatus, jqXHR) {
+    //         console.log(data);
+    //     });
+    // });
+
+    $("#place-new-submit").click(function() {
+
+        var newPlaceID = $("#place-new-id input").val();
+        var newPlaceName = $("#place-new-name input").val();
+        var newPlaceLat = $("#place-new-lat input").val();
+        var newPlaceLng = $("#place-new-lng input").val();
 
         console.log("the new user has details:");
-        console.log(newUserName);
-        console.log(newUserEmail);
+        console.log(newPlaceID);
+        console.log(newPlaceName);
+        console.log(newPlaceLat);
+        console.log(newPlaceLng);
 
         $.ajax({
             type: "POST",
-            url: "http://localhost:3000/newuser",
+            url: "http://localhost:3000/newplace",
             data: {
-                name: newUserEmail,
-                email: newUserEmail
+                id: newPlaceID,
+                name: newPlaceName,
+                lat: newPlaceLat,
+                lng: newPlaceLng
+            }
+        }).done(function(data, textStatus, jqXHR) {
+            console.log(data);
+        });
+    });
+
+    $("#place-check-submit").click(function() {
+
+        var checkPlaceID = $("#place-check-id input").val();
+
+        console.log("the place is:");
+        console.log(checkPlaceID);
+
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:3000/place",
+            data: {
+                id: checkPlaceID
             }
         }).done(function(data, textStatus, jqXHR) {
             console.log(data);
@@ -125,7 +187,10 @@ $().ready(function() {
 
     $(document).keydown(function(e) {
 
-        if ((e.keyCode == 192) || (e.keyCode == 223)) {
+        //console.log(e.keyCode);
+
+        //if ((e.keyCode == 192) || (e.keyCode == 223)) {
+        if (e.keyCode == 223) {
 
             camveg.toggleConsole();
         }
