@@ -90,6 +90,40 @@ html, body {
 
 }
 
+#about-facilities {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+#about-hours {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.opening-hours-summary {
+    display: table;
+}
+
+.opening-hours-day {
+    display: table-row;
+}
+
+.weekday {
+    display: table-cell;
+    border: hidden;
+    border-width: thin;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.hour-minute {
+    display: table-cell;
+    border: hidden;
+    border-width: thin;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
 #about-photos {
   margin-left: 10px;
   margin-right: 10px;
