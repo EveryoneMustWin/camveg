@@ -25,7 +25,7 @@ var outlets = [{
     ],
     "photos": ["arjuna-shop-front.jpg", "arjuna-shop-interior.jpg"],
     "description": "Wholefood shop with many vegan options",
-    "reviews": "5 out of 5"
+    "rating": "5"
 }, {
     "name": "Espresso Library",
     "facilities": ["cafe", "wifi"],
@@ -47,7 +47,7 @@ var outlets = [{
     ],
     "photos": ["espresso-library-exterior.jpg", "espresso-library-interior.jpg"],
     "description": "Cafe with vegan tiffin and cake",
-    "reviews": "5 out of 5"
+    "rating": "5"
 }, {
     "name": "Daily Bread Co-Operative",
     "facilities": ["cafe", "wholefood"],
@@ -69,7 +69,7 @@ var outlets = [{
     ],
     "photos": [],
     "description": "Wholefood store with refill options",
-    "reviews": "5 out of 5"
+    "rating": "5"
 }, {
     "name": "Wandering Yak",
     "facilities": ["eat/streetfood"],
@@ -104,7 +104,7 @@ var outlets = [{
     ],
     "photos": [],
     "description": "Mobile food van",
-    "reviews": "5 out of 5"
+    "rating": "5"
 }, {
     "name": "Cube of Truth",
     "facilities": ["activists", "scarymovies"],
@@ -120,5 +120,5 @@ var outlets = [{
     ],
     "photos": [],
     "description": "Animal rights demo, using videos of suffering",
-    "reviews": "5 out of 5"
+    "rating": "5"
 }]
