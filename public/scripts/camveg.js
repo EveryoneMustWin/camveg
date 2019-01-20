@@ -48,10 +48,14 @@ $().ready(function() {
 
             console.log(p);
 
-            galleryStr += ("<img src='" + p + "'></img>");
+            galleryStr += ("<div class='photo-holder'><img src='images/" + p + "'></img></div>");
         });
 
         galleryStr += "";
+
+        console.log(galleryStr);
+
+        return galleryStr;
     }
 
 
