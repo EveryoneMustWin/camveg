@@ -71,6 +71,28 @@ var outlets = [{
     "description": "Wholefood store with refill options",
     "rating": "5"
 }, {
+    "name": "Stem and Glory",
+    "facilities": ["cafe"],
+    "website": "https://www.stemandglory.uk/",
+    "venues": [
+        {
+            "name": "",
+            "location": { "lat": 52.2074, "lng": 0.1206 },
+            "open": {
+                // "Monday":    ["7:30", "18:00"],
+                // "Tuesday":   ["7:30", "18:00"],
+                // "Wednesday": ["7:30", "18:00"],
+                // "Thursday":  ["7:30", "18:00"],
+                // "Friday":    ["7:30", "18:00"],
+                // "Saturday":  ["7:30", "18:00"],
+                // "Sunday":    ["8:30", "18:00"]
+            }
+        }
+    ],
+    "photos": [],
+    "description": "All vegan cafe, now with evening menu",
+    "rating": "5"
+}, {    
     "name": "Wandering Yak",
     "facilities": ["eat/streetfood"],
     "website": "http://www.wanderingyak.co.uk",
