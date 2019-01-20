@@ -48,7 +48,7 @@ $().ready(function() {
 
             console.log(p);
 
-            galleryStr += ("<div class='photo-holder'><img src='images/" + p + "'></img></div>");
+            galleryStr += ("<div class='photo-holder'><img src='images/" + p + "'></img></div><div class='photo-spacer'></div>");
         });
 
         galleryStr += "";
