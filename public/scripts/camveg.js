@@ -37,36 +37,37 @@ $().ready(function() {
 
     camveg.load = function() {
 
-        $.each(outlets, function(i, o) {
-
+        $.each(outlets, function (i, o) {
             console.log(o);
+            $.each(o.venues, function (j, v) {
 
-            var m = L.marker([o.lat, o.lng]).addTo(mymap);
+                var m = L.marker([v.location.lat, v.location.lng]).addTo(mymap);
 
-            console.log(m);
+                console.log(m);
 
-            $(m).click(function() {
+                $(m).click(function () {
 
-                console.log("marker clicked");
+                    console.log("marker clicked");
 
-                mymap.panTo(m.getLatLng());
+                    mymap.panTo(m.getLatLng());
 
-                $("#debug").hide();
+                    $("#debug").hide();
 
-                $("#map-container").animate({
-                    width: "600px"
+                    $("#map-container").animate({
+                        width: "600px"
+                    });
+
+                    $("#about-header").empty().append(o.name);
+                    $("#about-summary").empty().append(o.description);
+                    $("#about-photos").empty().append(o.photos);
+                    $("#about-reviews").empty().append(o.reviews);
                 });
 
-                $("#about-header").empty().append(o.name);
-                $("#about-summary").empty().append(o.description);
-                $("#about-photos").empty().append(o.photos);
-                $("#about-reviews").empty().append(o.reviews);
+                // Add popup
+                var popupText = `${o.name}`
+                popupText += `<br/><a href="${o.website}">${o.website}</a>`
+                m.bindPopup(popupText).openPopup();
             });
-
-            // Add popup
-            var popupText = `${o.name}`
-            popupText += `<br/><a href="${o.website}">${o.website}</a>`
-            m.bindPopup(popupText).openPopup();
         });
     };
 
