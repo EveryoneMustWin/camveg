@@ -16,7 +16,7 @@ $().ready(function() {
             console.log("hiding console");
 
             $("#map-container").animate({
-                height: "500px"
+                width: "1300px"
             });
 
             camveg.consoleShown = false;
@@ -25,7 +25,7 @@ $().ready(function() {
             console.log("showing console");
 
             $("#map-container").animate({
-                height: "400px"
+                width: "600px"
             });
 
             camveg.consoleShown = true;
@@ -41,10 +41,34 @@ $().ready(function() {
 
             console.log(o);
 
-            L.marker([o.lat, o.lng]).addTo(mymap);
+            var m = L.marker([o.lat, o.lng]).addTo(mymap);
+
+            console.log(m);
+
+            $(m).click(function() {
+
+                console.log("marker clicked");
+
+                mymap.panTo(m.getLatLng());
+
+                $("#debug").hide();
+
+                $("#map-container").animate({
+                    width: "600px"
+                });
+
+                $("#about-header").empty().append(o.name);
+                $("#about-summary").empty().append(o.description);
+                $("#about-photos").empty().append(o.photos);
+                $("#about-reviews").empty().append(o.reviews);
+            });
+
+            // Add popup
+            var popupText = `${o.name}`
+            popupText += `<br/><a href="${o.website}">${o.website}</a>`
+            m.bindPopup(popupText).openPopup();
         });
     };
-
 
     var lnrs = [];
 
@@ -84,11 +108,9 @@ $().ready(function() {
         console.log("keydown");
         console.log(e.keyCode);
 
-        if (e.keyCode == 223) {
+        if ((e.keyCode == 192) || (e.keyCode == 223)) {
 
             camveg.toggleConsole();
         }
     });
-
-
 });
